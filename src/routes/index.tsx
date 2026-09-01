@@ -18,7 +18,7 @@ import { GrainOverlay } from "@/components/wedding/Effects";
 import { wedding } from "@/data/wedding";
 
 const title = `${wedding.bride} & ${wedding.groom}`;
-const description = `Join ${wedding.bride} and ${wedding.groom} at ${wedding.location.venue} on ${wedding.dateLong}. Ceremony, schedule, gallery, location and RSVP.`;
+const description = `Информация за сватбата на ${wedding.bride} и ${wedding.groom} на ${wedding.dateLong}.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
