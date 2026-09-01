@@ -1,0 +1,20 @@
+# Netlify deployment configuration for this TanStack Start site.
+#
+# How it works:
+#  - Netlify CI sets NETLIFY=true, which makes vite.config.ts switch the
+#    Nitro build preset to "netlify".
+#  - Static assets are emitted to .output/public (published below).
+#  - The SSR server is emitted as a Netlify Function under
+#    .netlify/functions-internal, which Netlify picks up automatically —
+#    no manual redirects or functions config needed.
+
+[build]
+  command = "npm run build"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Optional: also works when deploying from your machine with the Netlify CLI:
+#   npm install -g netlify-cli
+#   netlify deploy --build --prod

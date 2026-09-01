@@ -1,0 +1,316 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Wedding design system — navy, gold, ivory.
+ * All colors in oklch. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-sapphire: var(--sapphire);
+  --color-dusty: var(--dusty);
+  --color-dusty-soft: var(--dusty-soft);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
+  --color-ivory: var(--ivory);
+  --color-blush: var(--blush);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Pinyon Script", cursive;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --navy-deep: oklch(0.24 0.062 262);
+  --navy: oklch(0.32 0.078 260);
+  --sapphire: oklch(0.45 0.105 258);
+  --dusty: oklch(0.72 0.05 250);
+  --dusty-soft: oklch(0.93 0.018 250);
+  --gold: oklch(0.76 0.098 84);
+  --gold-light: oklch(0.88 0.058 88);
+  --gold-deep: oklch(0.63 0.096 78);
+  --ivory: oklch(0.985 0.006 90);
+  --blush: oklch(0.9 0.032 20);
+
+  --background: var(--ivory);
+  --foreground: var(--navy-deep);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--navy-deep);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--navy-deep);
+  --primary: var(--navy);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--dusty-soft);
+  --secondary-foreground: var(--navy-deep);
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: oklch(0.55 0.03 258);
+  --accent: var(--gold);
+  --accent-foreground: var(--navy-deep);
+  --destructive: oklch(0.577 0.18 27);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.9 0.012 250);
+  --input: oklch(0.9 0.012 250);
+  --ring: var(--gold);
+
+  --shadow-soft: 0 20px 60px -30px color-mix(in oklab, var(--navy) 45%, transparent);
+  --shadow-gold: 0 0 0 1px color-mix(in oklab, var(--gold) 45%, transparent),
+    0 18px 45px -20px color-mix(in oklab, var(--gold) 55%, transparent);
+  --gradient-gold: linear-gradient(
+    100deg,
+    var(--gold-deep),
+    var(--gold-light) 45%,
+    var(--gold) 70%,
+    var(--gold-deep)
+  );
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 35%, transparent);
+  }
+}
+
+@utility font-script {
+  font-family: var(--font-script);
+}
+
+@utility text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+@utility gold-rule {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--gold) 75%, transparent),
+    transparent
+  );
+}
+
+@utility card-elegant {
+  background: color-mix(in oklab, white 92%, var(--ivory));
+  border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in oklab, var(--gold) 75%, transparent);
+    box-shadow: var(--shadow-gold);
+  }
+}
+
+@utility btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  border: 1px solid color-mix(in oklab, var(--gold) 70%, transparent);
+  background: color-mix(in oklab, white 70%, transparent);
+  overflow: hidden;
+  transition:
+    color 0.5s ease,
+    box-shadow 0.6s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: var(--navy-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 0 34px -6px color-mix(in oklab, var(--gold) 65%, transparent);
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+@utility btn-gold-solid {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  background: var(--gradient-gold);
+  background-size: 200% 100%;
+  border: 1px solid color-mix(in oklab, var(--gold-deep) 60%, transparent);
+  transition:
+    background-position 0.9s ease,
+    box-shadow 0.6s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 0 44px -8px color-mix(in oklab, var(--gold) 80%, transparent);
+  }
+}
+
+@utility field-elegant {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--navy) 22%, transparent);
+  padding: 0.7rem 0;
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+  outline: none;
+  transition: border-color 0.4s ease;
+
+  &:focus {
+    border-color: var(--gold);
+  }
+
+  &::placeholder {
+    color: color-mix(in oklab, var(--navy) 35%, transparent);
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.75;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate3d(var(--drift, 40px), 110vh, 0) rotate(420deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--drift, 20px), -120px, 0) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
