@@ -156,7 +156,7 @@ export function SectionHeading({
 
 export function Ornament({ className }: { className?: string | undefined }) {
   return (
-    <svg
+<svg
       viewBox="0 0 220 24"
       className={cn("h-6 w-52 text-gold", className)}
       fill="none"
@@ -164,12 +164,19 @@ export function Ornament({ className }: { className?: string | undefined }) {
       strokeWidth="0.8"
       aria-hidden
     >
+      {/* Лява и дясна хоризонтална линия */}
       <path d="M0 12h72" />
       <path d="M148 12h72" />
-      <path d="M110 4c-7 0-12 3.6-12 8s5 8 12 8 12-3.6 12-8-5-8-12-8Z" />
-      <path d="M110 1.5 116 12l-6 10.5L104 12Z" />
+
+      {/* Малки точки */}
       <circle cx="86" cy="12" r="1.6" fill="currentColor" stroke="none" />
       <circle cx="134" cy="12" r="1.6" fill="currentColor" stroke="none" />
+
+      {/* Двата преплетени пръстена в центъра */}
+      <g transform="translate(102, 6)">
+        <ellipse cx="6" cy="3" rx="7.5" ry="4.5" transform="rotate(-25 6 6)" />
+        <ellipse cx="10" cy="6" rx="7.5" ry="4.5" transform="rotate(25 10 6)" />
+      </g>
     </svg>
   );
 }

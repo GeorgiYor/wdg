@@ -50,6 +50,8 @@
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
   --font-script: "Pinyon Script", cursive;
+  --font-and: "Tangerine";
+  --font-qwig: "Qwigley";
 }
 
 :root {

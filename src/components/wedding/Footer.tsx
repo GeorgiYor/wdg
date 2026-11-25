@@ -31,7 +31,7 @@ export function Footer() {
             <LetterReveal text={wedding.bride} stagger={0.05} />
           </span>
           <span className="font-script my-1 text-[clamp(1.8rem,6vw,3.4rem)] text-gold">
-            &amp;
+            <span className="font-and">&amp;</span>
           </span>
           <span className="text-[clamp(2.6rem,11vw,6rem)]">
             <LetterReveal text={wedding.groom} stagger={0.05} />

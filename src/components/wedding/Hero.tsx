@@ -98,7 +98,9 @@ export function Hero() {
             transition={{ duration: 1.4, delay: 0.9, ease: EASE }}
             className="font-script my-1 text-[clamp(2rem,7vw,4rem)] text-gold"
           >
+            <span className="font-and text-[6rem]">
             &amp;
+            </span>
           </motion.span>
           <span className="text-[clamp(3rem,13vw,7.5rem)] font-light tracking-[0.01em]">
             <LetterReveal text={wedding.groom} stagger={0.06} delay={1.05} />

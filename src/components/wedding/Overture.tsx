@@ -75,7 +75,7 @@ export function Overture({ onOpen }: { onOpen: () => void }) {
               className="mt-6 font-serif text-[clamp(2.6rem,10vw,5.5rem)] leading-[1.05] text-navy-deep"
             >
               {wedding.bride}
-              <span className="font-script mx-3 text-gold">&amp;</span>
+              <span className="font-and mx-3 text-gold"> &amp; </span>
               {wedding.groom}
             </motion.h1>
 

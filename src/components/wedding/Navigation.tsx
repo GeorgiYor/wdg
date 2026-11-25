@@ -57,9 +57,9 @@ export function Navigation() {
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8">
           <a
             href="#home"
-            className="font-script min-w-0 truncate text-2xl text-navy-deep transition-colors hover:text-gold-deep"
+            className="font-qwig min-w-0 truncate text-2xl text-navy-deep transition-colors hover:text-gold-deep"
           >
-            S <span className="text-gold">&amp;</span> G
+            S <span className="text-gold font-and">&amp;</span> G
           </a>
 
           <ul className="hidden items-center gap-9 lg:flex">
